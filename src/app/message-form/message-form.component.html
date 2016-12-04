@@ -1,0 +1,38 @@
+<div [hidden]="submitted">
+  <md-card class="demo-card demo-basic">
+    <md-toolbar color="primary">SMS Sender</md-toolbar>
+    <md-card-content>
+      <form (ngSubmit)="onSubmit()" #messageForm="ngForm">
+        <div>
+          <md-input class="demo-full-width" type="tel" placeholder="Pick a phone number"
+                    required
+                    [(ngModel)]="model.number" name="number">
+          </md-input>
+        </div>
+        <div>
+          <md-textarea rows="5" class="demo-full-width" placeholder="Type a message, press enter to send"
+                       required
+                       [(ngModel)]="model.message" name="message">
+          </md-textarea>
+        </div>
+        <button type="submit" md-raised-button color="primary" [disabled]="!messageForm.form.valid">Submit</button>
+      </form>
+      <div style="position:absolute;left:2px;bottom:-25px;font-size:12px;color:#95a5a6;">
+        Note: Your phone must be powered on and have an internet connection for the texts to send.
+      </div>
+    </md-card-content>
+  </md-card>
+</div>
+
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div class="row">
+    <div class="col-xs-3">Number</div>
+    <div class="col-xs-9  pull-left">{{ model.number }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Message</div>
+    <div class="col-xs-9 pull-left">{{ model.message }}</div>
+  </div>
+</div>
+
