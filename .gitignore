@@ -35,4 +35,4 @@ testem.log
 Thumbs.db
 
 # config variable
-config.ts
+src/config.ts

@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { AngularFireModule, AuthMethods, AuthProviders } from 'angularfire2';
 import { MessageFormComponent } from './message-form/message-form.component';
-import { FirebaseConfig } from '../../config';
+import { FirebaseConfig } from '../config';
 
 export const firebaseConfig = {
   apiKey: FirebaseConfig.apiKey,

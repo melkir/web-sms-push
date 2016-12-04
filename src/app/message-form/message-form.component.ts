@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { Message } from './message';
 import { Headers, RequestOptions, Http } from '@angular/http';
-import { FCMConfig } from "../../../config";
+import { FCMConfig } from "../../config";
 import "rxjs/add/operator/map";
 
 @Component({
