@@ -1,4 +1,31 @@
 <div class="container-fluid">
   <h1>{{title}}</h1>
-  <message-form></message-form>
+
+  <section [ngSwitch]="isAuth">
+
+    <div *ngSwitchCase="false">
+      <button md-raised-button (click)="login()">
+        <img width="30" style="padding-right: 10px" src="../assets/google-logo.png"/>Sign in with Google
+      </button>
+    </div>
+
+    <div *ngSwitchCase="true">
+
+      <md-card style="margin: 16px; width: 500px;">
+        <md-card-header>
+          <md-card-title>{{ user.name }}</md-card-title>
+          <md-card-subtitle>{{ user.email || '(no email)' }}</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          <p>You are logged in using <strong>{{ user.provider }}</strong></p>
+        </md-card-content>
+        <md-card-actions align="end">
+          <button md-raised-button (click)="logout()">Logout</button>
+        </md-card-actions>
+      </md-card>
+      <message-form></message-form>
+    </div>
+
+  </section>
+
 </div>

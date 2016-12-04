@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { Message } from './message';
 import { Headers, RequestOptions, Http } from '@angular/http';
-import { FCM } from "../../../config";
+import { FCMConfig } from "../../../config";
 import "rxjs/add/operator/map";
 
 @Component({
@@ -27,13 +27,13 @@ export class MessageFormComponent {
   }
 
   sendPushData(data: Message) {
-    let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'key=' + FCM.api_key});
+    let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'key=' + FCMConfig.api_key});
     let options = new RequestOptions({headers: headers});
     let body = {
       data: {number: data.number, message: data.message},
-      to: FCM.reg_token
+      to: FCMConfig.reg_token
     };
-    return this.http.post(FCM.url, body, options);
+    return this.http.post(FCMConfig.url, body, options);
   }
 
 }
